@@ -15,6 +15,7 @@ exports.handler = async (event, context) => {
   try {
     const channel = await rabbitPromise();
     let message = await channel.get("TutorialRabbitMQQueue",{'noAck':true});
+    console.log({message});
     while (message) {
       const request = JSON.parse(message.content.toString());
       switch (request.method) {
