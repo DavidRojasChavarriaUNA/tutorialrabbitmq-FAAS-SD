@@ -18,6 +18,7 @@ exports.handler = async (event, context) => {
     console.log({message});
     while (message) {
       const request = JSON.parse(message.content.toString());
+      console.log({request});
       switch (request.method) {
         case "DELETE":
           await fetch(url+'bookDeleteBatch/'+request.id, {
