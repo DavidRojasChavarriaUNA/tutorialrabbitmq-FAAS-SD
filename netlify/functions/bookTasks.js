@@ -15,12 +15,8 @@ exports.handler = async (event, context) => {
   try {
     const channel = await rabbitPromise();
     let message = await channel.get("TutorialRabbitMQQueue",{'noAck':true});
-    console.log({message});
     while (message) {
-      //const request = JSON.parse(message.content.toString());
-      console.log({messajecontent: message.content.toString()});
-      const request = message.content.toJSON();
-      console.log({request});
+      const request = JSON.parse(message.content.toString());
       switch (request.method) {
         case "DELETE":
           await fetch(url+'bookDeleteBatch/'+request.id, {
