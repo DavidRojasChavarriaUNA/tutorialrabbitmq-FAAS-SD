@@ -1,0 +1,10 @@
+{
+  "name": "tarea_03_sistemas_sistribuidos_back_end_faas",
+  "version": "1.0.0",
+  "description": "Tutorial 3",
+  "author": "David Rojas Chavarria",
+  "license": "Unlicense",
+  "dependencies": {
+    "mongodb": "latest"
+  }
+}
