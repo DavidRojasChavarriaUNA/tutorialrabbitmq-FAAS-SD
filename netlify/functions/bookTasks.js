@@ -17,7 +17,9 @@ exports.handler = async (event, context) => {
     let message = await channel.get("TutorialRabbitMQQueue",{'noAck':true});
     console.log({message});
     while (message) {
-      const request = JSON.parse(message.content.toString());
+      //const request = JSON.parse(message.content.toString());
+      console.log({messajecontent: message.content.toString()});
+      const request = message.content.toJSON();
       console.log({request});
       switch (request.method) {
         case "DELETE":
